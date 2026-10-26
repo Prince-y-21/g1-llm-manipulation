@@ -1,0 +1,504 @@
+{
+  "schema_version": "1.0",
+  "library_version": "2026-10-25.2",
+  "updated_at": "2026-10-25",
+  "timezone": "Asia/Shanghai",
+  "purpose": "本机机器人资料索引、历史配置线索和验证缺口清单；仅供阅读与审查，不是可执行控制配置",
+  "execution_ready": false,
+  "robot_connected_during_library_build": false,
+  "secrets_included": false,
+  "runtime_state": {
+    "current": false,
+    "mode": null,
+    "joint_positions": null,
+    "gripper_positions": null,
+    "temperature": null,
+    "battery_soc": null,
+    "active_controllers": null,
+    "load_support": null,
+    "note": "本次任务重新读取，不从此文件或历史实验填入实时事实"
+  },
+  "status_vocabulary": {
+    "historical_observed": "历史实验读取、枚举或操作过；当前启动仍须核对",
+    "manufacturer_reference_pending_local_verification": "厂家公开资料；尚未核对本机版本、安装与适用条件",
+    "approximate": "手工假设或拟合近似，未完成实物精度验证",
+    "unverified": "未知或证据不足",
+    "requires_current_check": "每次启动、任务或状态变化后必须重新检查",
+    "validated_for_scope": "仅在另行填写范围、证据与日期后使用；本清单未授予任何全局运动准入"
+  },
+  "historical_connection_hints": {
+    "status": "historical_observed",
+    "ssh_alias": "robot-g1",
+    "user": "unitree",
+    "hostname": "ubuntu",
+    "historical_server_host_key_algorithm": "ED25519",
+    "historical_server_host_key_fingerprint": "DEVICE_ID_05",
+    "host_key_reference_date": "2026-10-16",
+    "server_wired_ipv4": "192.0.2.10/24",
+    "windows_wired_ipv4": "192.0.2.10/24",
+    "server_dds_interface": "eth0",
+    "dds_domain": 0,
+    "last_hardware_inventory_date": "2026-10-25",
+    "required_checks": [
+      "可信主机身份",
+      "BatchMode登录",
+      "当前网络与路由",
+      "boot ID与uptime",
+      "本次模式与姿态保持来源"
+    ],
+    "authentication_material": "不收录；使用用户本机现有认证"
+  },
+  "historical_software_hints": {
+    "status": "historical_observed",
+    "architecture": "aarch64",
+    "platform": "NVIDIA Orin NX Developer Kit",
+    "os": "Ubuntu 20.04.6 LTS",
+    "kernel": "5.10.104-tegra",
+    "sdk2_source": "/home/unitree/unitree_sdk2-main",
+    "sdk2_static_library": "/usr/local/lib/libunitree_sdk2.a",
+    "dex1_source": "/home/unitree/dex1_1_service",
+    "dex1_motor_library": "/home/unitree/dex1_1_service/lib/libUnitreeMotorSDK_Arm64.so",
+    "realsense_library_version": "2.50.0",
+    "python_version": "3.8.10",
+    "opencv_version": "4.2.0",
+    "numpy_version": "1.17.4",
+    "scipy_version": "1.3.3",
+    "required_current_verification": true,
+    "deployment_note": "独立持久任务目录与新run ID；核对硬编码路径、依赖与旧目标，不能由此自动启动"
+  },
+  "body": {
+    "status": "historical_observed",
+    "joint_count": 29,
+    "feedback_topic": "rt/lowstate",
+    "command_topic": "rt/lowcmd",
+    "message_namespace": "unitree_hg::msg::dds_",
+    "joint_groups": [
+      {
+        "side": "left_leg",
+        "indices": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "order": [
+          "hip_pitch",
+          "hip_roll",
+          "hip_yaw",
+          "knee",
+          "ankle_pitch",
+          "ankle_roll"
+        ]
+      },
+      {
+        "side": "right_leg",
+        "indices": [
+          6,
+          7,
+          8,
+          9,
+          10,
+          11
+        ],
+        "order": [
+          "hip_pitch",
+          "hip_roll",
+          "hip_yaw",
+          "knee",
+          "ankle_pitch",
+          "ankle_roll"
+        ]
+      },
+      {
+        "side": "waist",
+        "indices": [
+          12,
+          13,
+          14
+        ],
+        "order": [
+          "yaw",
+          "roll",
+          "pitch"
+        ]
+      },
+      {
+        "side": "left_arm",
+        "indices": [
+          15,
+          16,
+          17,
+          18,
+          19,
+          20,
+          21
+        ],
+        "order": [
+          "shoulder_pitch",
+          "shoulder_roll",
+          "shoulder_yaw",
+          "elbow",
+          "wrist_roll",
+          "wrist_pitch",
+          "wrist_yaw"
+        ]
+      },
+      {
+        "side": "right_arm",
+        "indices": [
+          22,
+          23,
+          24,
+          25,
+          26,
+          27,
+          28
+        ],
+        "order": [
+          "shoulder_pitch",
+          "shoulder_roll",
+          "shoulder_yaw",
+          "elbow",
+          "wrist_roll",
+          "wrist_pitch",
+          "wrist_yaw"
+        ]
+      }
+    ],
+    "historical_publish_target_hz": 500,
+    "hard_realtime_verified": false,
+    "hardware_variant_and_firmware": "unverified",
+    "control_note": "历史任务全身发送保持命令，主要改变右臂目标；不是只控制七个关节，也不代表完整全身碰撞建模",
+    "bimanual_empty_validation_20261021": {
+      "status": "physical_empty_finite_paths_passed",
+      "single_body_publisher": true,
+      "left_arm_indices": [
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21
+      ],
+      "right_arm_indices": [
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28
+      ],
+      "lower_body_initial_hold": true,
+      "standing_or_walking_validated": false,
+      "contact_task_validated": false
+    }
+  },
+  "grippers": {
+    "model": "Dex1-1",
+    "model_status": "historical_observed",
+    "control_separate_from_body_29_joints": true,
+    "geometry_must_be_unified_with_body": true,
+    "historical_transport": "电机SDK串口，未同时运行Dex1 DDS桥接",
+    "historical_motor_type": "M4010",
+    "historical_baud": 6000000,
+    "historical_gear_ratio": 25,
+    "converter_serial": "DEVICE_ID_02",
+    "right": {
+      "status": "historical_observed",
+      "historical_device": "/dev/ttyUSB1",
+      "historical_motor_id": 0,
+      "historical_by_id": "/dev/serial/by-id/DEVICE_TO_CONFIGURE",
+      "current_identity_check_required": true
+    },
+    "left": {
+      "status": "historical_observed",
+      "historical_device": "/dev/ttyUSB2",
+      "historical_motor_id": 1,
+      "historical_by_id": "/dev/serial/by-id/DEVICE_TO_CONFIGURE",
+      "current_identity_check_required": true,
+      "direction_zero_and_stroke_calibrated": false
+    },
+    "output_angle_to_opening_mm_calibrated": false,
+    "estimated_torque_to_finger_force_calibrated": false,
+    "contact_flag_proves_load_bearing": false,
+    "manufacturer_width_reference": {
+      "status": "manufacturer_reference_pending_local_verification",
+      "source_url": "https://www.unitree.com/cn/mobile/Dex1-1/",
+      "consulted_at": "2026-10-20",
+      "half_open_minimum_external_width_mm": 78,
+      "fully_open_external_width_mm": 120,
+      "fully_closed_rails_external_width_mm": 124.5,
+      "actual_local_hardware_and_installation_verified": false,
+      "complete_3d_envelope": false,
+      "note": "闭合夹指不意味着整体更窄；参数以实物及厂家适用条件为准，不能直接用作本机完整碰撞体"
+    },
+    "empty_stroke_validation_20261021": {
+      "status": "supported_debug_empty_motion_only",
+      "positive_output_angle_opens_both": true,
+      "left_approx_output_stroke_rad": 4.6,
+      "right_approx_output_cycle_rad": 3.7,
+      "output_pd_effort_cap_nm": 0.8,
+      "output_kd": 3,
+      "output_kp": 5,
+      "outer_proportional_slope": 3,
+      "observed_torque_guard_nm": 1,
+      "speed_guard_rad_s": 0.25,
+      "not_grasp_force_calibration": true,
+      "not_manufacturer_limits": true
+    }
+  },
+  "cameras": [
+    {
+      "id": "head",
+      "status": "historical_observed",
+      "model": "RealSense D435i",
+      "serial": "DEVICE_ID_01",
+      "current_stream_intrinsics_required": true,
+      "body_extrinsic": "approximate",
+      "physical_installation_validated": false,
+      "sdk_identity_observed_20261021": "DEVICE_SERIAL_TO_CONFIGURE",
+      "historical_uvc_vs_sdk_serial_discrepancy_resolved": false
+    },
+    {
+      "id": "left_wrist",
+      "status": "historical_observed",
+      "serial": "DEVICE_ID_03",
+      "historical_capture_device": "/dev/video0",
+      "hand_eye_calibration": "unverified",
+      "physical_installation_validated": false
+    },
+    {
+      "id": "right_wrist",
+      "status": "historical_observed",
+      "serial": "DEVICE_ID_04",
+      "historical_capture_device": "/dev/video8",
+      "hand_eye_calibration": "unverified",
+      "physical_installation_validated": false
+    }
+  ],
+  "models_and_calibration": {
+    "assets_bundled_as_executable_model_package": false,
+    "historical_base_urdf": {
+      "filename": "g1_29dof_rev_1_0.urdf",
+      "sha256": "C0AE739C640C3E2C00D1BDD8810B5D6E59601487BD1A3995859F9543269EE5C8",
+      "source_hint": "https://github.com/unitreerobotics/unitree_ros/blob/master/robots/g1_description/g1_29dof_rev_1_0.urdf",
+      "hand_links": [
+        "left_rubber_hand",
+        "right_rubber_hand"
+      ],
+      "represents_installed_dex1": false,
+      "full_actual_robot_correspondence_verified": false
+    },
+    "historical_tool_tcp_m": {
+      "value": [
+        0.19,
+        0,
+        0
+      ],
+      "frame": "historical_wrist_reference",
+      "status": "approximate",
+      "validated": false
+    },
+    "historical_tool_sample_max_x_m": {
+      "value": 0.225,
+      "status": "approximate",
+      "complete_geometry_coverage_verified": false
+    },
+    "full_body_collision_coverage": "unverified",
+    "historical_initial_leg_check": "omitted",
+    "historical_later_leg_geometry": "由特定关节反馈快照生成胶囊包络；不是持续更新的统一全身模型",
+    "actual_dex1_mount_and_attachments": "unverified",
+    "opening_dependent_rails_and_fingers": "unverified",
+    "opening_swept_volume": "unverified",
+    "head_camera_to_body_extrinsic": "approximate",
+    "wrist_camera_to_wrist_extrinsics": "unverified",
+    "wrist_to_validated_tcp": "unverified",
+    "attachment_mass_center_and_inertia": "unverified",
+    "multi_camera_and_joint_time_alignment": "unverified",
+    "robot_to_task_frame": "requires_current_check",
+    "rigid_payload_registration": "承载验证通过且无滑移时才可在对应范围使用；桌面支撑下的注册不证明承载",
+    "reference_assembly_20261021": {
+      "status": "reference_assets_and_empty_path_checks_only",
+      "source": "https://huggingface.co/lerobot/unitree-g1-mujoco",
+      "commit": "905111699ef28bdeb1c69c6fe8ada8405e963a48",
+      "urdf_sha256": "0a25ea0ed77740ca66af74a9f3c2dae649324a369351bf2f6d5cab3555b5f059",
+      "wrist_to_dex_base_reference_m": [
+        0.0415,
+        0,
+        0
+      ],
+      "wrist_to_finger_front_reference_m": 0.1848,
+      "full_visual_mesh_convex_hull_contact_decomposition_pending": true,
+      "physical_installation_calibrated": false,
+      "absolute_tcp_accuracy_verified": false
+    },
+    "head_registration_20261021": {
+      "status": "candidate_only_not_physical_calibration",
+      "reference_translation_change_m": 0.02191405994,
+      "reference_rotation_change_rad": 0.07191209807,
+      "visible_pose_trimmed_depth_median_residual_m": 0.0018,
+      "residual_equals_tcp_accuracy": false
+    },
+    "cpu_geometry_crosscheck_20261021": {
+      "windows_mujoco": "3.16",
+      "jetson_mujoco": "3.1.6",
+      "pose_count": 10,
+      "maximum_fk_gravity_difference": 4.5e-15,
+      "physical_model_validated": false
+    }
+  },
+  "temperature_reference": {
+    "source": "本机归档Unitree SDK2 g1/common/terminations.hpp辅助判断函数",
+    "status": "historical_observed",
+    "body_case_channel": 0,
+    "body_winding_channel": 1,
+    "sdk_helper_default_case_c": 85,
+    "sdk_helper_default_winding_c": 120,
+    "verified_firmware_trip_values": false,
+    "recommended_continuous_operating_values": false,
+    "historical_custom_gripper_guard_c": 55,
+    "current_controller_configuration_required": true,
+    "automatic_thermal_recovery_validated": false,
+    "note": "历史临时热卸载版本曾跳过普通温度拒绝检查，不是通用任务入口或厂家认可恢复流程"
+  },
+  "dex1_source_model_audit_20261021": {
+    "status": "source_file_review_only_not_installed_assembly_validation",
+    "source": "/home/unitree/dex1_1_service/urdf/dex1_1.urdf",
+    "sha256": "1748d4d019cc181fd9f90c4ba875b2205ae6f8a0b61baba4a07f986edb2d4068",
+    "link_count": 6,
+    "prismatic_joint_count": 2,
+    "mesh_files_count": 7,
+    "mesh_not_referenced_by_urdf": [
+      "Link2_3.STL"
+    ],
+    "sum_of_urdf_inertial_mass_kg": 0.1881706,
+    "wrist_mount_transform_validated": false,
+    "motor_angle_to_coupled_joint_positions_calibrated": false,
+    "full_installed_geometry_coverage_verified": false
+  },
+  "cap_opening_capabilities": {
+    "bimanual_coordinated_body_controller_validated": true,
+    "bottle_antirotation_grasp_validated": false,
+    "cap_grasp_torsion_and_axial_following_validated": false,
+    "cap_detachment_and_independent_placement_validated": false,
+    "note": "2026-10-21后续完成统一双臂及夹爪空载验证；未接触瓶盖/瓶身，未实际拧盖。接触控制原型未完成且--execute入口已禁用；不并发旧单臂发布器。",
+    "bimanual_validation_scope": "finite empty motion, supported debug mode only",
+    "contact_controller_validated": false
+  },
+  "mandatory_current_checks": [
+    "任务授权、允许部位与模式、结束方式",
+    "承重条件、急停、其他控制来源",
+    "主机身份、启动、网络、依赖与部署版本",
+    "按序列号及by-id核对设备、权限、占用",
+    "反馈CRC、新鲜度、模式、故障、29关节位置速度与力矩",
+    "壳体和绕组温度趋势、电量、任务与撤回余量",
+    "实际全身与夹爪状态、附件、场景、相关几何覆盖",
+    "从真实起点的接近、开合、携物、返回和恢复路径",
+    "请求、接受、执行、验证分别记录，隔离旧目标与释放文件"
+  ],
+  "required_before_relevant_motion": [
+    {
+      "id": "full_body_and_tool_geometry",
+      "completed_for_new_task": false,
+      "evidence_required": "相关全身link与工具、导轨、附件覆盖及实物核对；排除项和误差明确"
+    },
+    {
+      "id": "coordinate_consistency",
+      "completed_for_new_task": false,
+      "evidence_required": "当前模型、外参、TCP和任务参考在所需精度内独立验证"
+    },
+    {
+      "id": "state_time_consistency",
+      "completed_for_new_task": false,
+      "evidence_required": "图像、全身与夹爪状态时间关系及新鲜度已核对"
+    },
+    {
+      "id": "path_and_opening_sweep",
+      "completed_for_new_task": false,
+      "evidence_required": "实际起点至接近、开合、携物、返回和恢复路径检查"
+    },
+    {
+      "id": "control_handoff_and_exit",
+      "completed_for_new_task": false,
+      "evidence_required": "当前持姿来源、接管连续性、异常和停止后果已明确"
+    },
+    {
+      "id": "thermal_and_power_margin",
+      "completed_for_new_task": false,
+      "evidence_required": "本次温度/电量与负载满足任务及减载恢复余量"
+    }
+  ],
+  "optional_legacy_evidence_hints": [
+    "旧工作区/G1机器人_硬件配置与接口参考.md",
+    "旧工作区/observations/bottle_grasp_20261016/G1机器人抓取水瓶_完整流程与问题复盘.md",
+    "旧工作区/observations/bottle_to_mousepad_20261016/G1机器人水瓶搬运至鼠标垫_完整实验复盘_20261016-17.md",
+    "旧工作区/observations/pour_water_20261019/G1机器人倒水实验_完整流程与问题复盘_20261019.md",
+    "旧工作区/observations/g1_29dof_rev_1_0.urdf",
+    "旧工作区/robot_tools/pour_model.py",
+    "旧工作区/robot_tools/pour_leg_model.py",
+    "旧工作区/robot_tools/pour_payload_model.py"
+  ],
+  "maintenance_rule": "更新稳定事实时附来源、验证日期与适用范围；实时状态另存本次run；不知道保持未知，不把历史成功扩展为全范围准入",
+  "paper_task_historical_validation": {
+    "date": "2026-10-22",
+    "task": "A4纸放到鼠标垫",
+    "scope": "suspended supported debug mode; one left-corner grasp and small lift only",
+    "paper_corner_grasp_and_small_lift_observed": true,
+    "entire_sheet_off_table_verified": false,
+    "paper_transferred_to_mousepad": false,
+    "complete_task_motion_validated": false,
+    "physical_calibration_completed": false,
+    "failure": "Left elbow tracking error about0.067rad during larger lift; program4Nm cap saturated; not a temperature fault. Physical root cause not fully isolated.",
+    "recovery_scope": "Paper released, stored empty return executed, controller exited; initial position hold not restored.",
+    "evidence_hint": "旧工作区/observations/20261022_A4纸放到鼠标垫/全过程流程线.md"
+  },
+  "paper_task_historical_validation_20261023": {
+    "date": "2026-10-23",
+    "scope": "fully supported hanger, debug low-level control",
+    "paper_transferred_to_mousepad": false,
+    "small_lift_executed": false,
+    "physical_calibration_completed": false,
+    "contact_controller_validated": false,
+    "unilateral_gripper_exit_recovery_validated": false,
+    "failure": "User onsite observation confirms gripper clamped table. Position closure continued against obstruction, then custom guard exited at estimated -5.009765625Nm (merror=0); stale release acknowledgement prevented return, body torque release preceded paper falling to floor. No lift/carry/place executed.",
+    "evidence_hint": "旧工作区/observations/20261023_A4纸放到鼠标垫/完整实验流程与公开执行审计.md",
+    "note": "No current runtime facts are populated; previous-day scoped validation retained separately.",
+    "contact_obstruction": "table",
+    "contact_obstruction_evidence": "User onsite observation reported after experiment",
+    "contact_error_decomposition_measured": false
+  },
+  "paper_task_resume_20261025": {
+    "status": "validated_for_scope",
+    "scope": "One fully suspended debug-mode left-gripper pickup/carry/release trial; only partial placement on mousepad, no repeated precision validation.",
+    "run_id": "paper_resume_20261025_2041",
+    "single_body_publisher_29_joints": true,
+    "paper_pickup_and_carry_verified": true,
+    "independent_release_verified": true,
+    "paper_partly_on_mousepad_verified": true,
+    "paper_centered_verified": false,
+    "paper_fully_inside_mousepad_verified": false,
+    "normal_empty_home_and_shutdown_verified": true,
+    "physical_thermal_exception_exercised": false,
+    "absolute_tcp_accuracy_verified": false,
+    "all_other_objects_zero_contact_proven": false,
+    "physical_repeatability_verified": false,
+    "evidence_hint": "项目/observations/20261023_A4纸放到鼠标垫/runs/resume_20261025_2041/20261025_续做实验流程与结果.md",
+    "note": "Additive optional history entry under schema1.0; previous failures retained. Runtime fields remain null; software checks do not upgrade general thermal recovery or installed calibration."
+  },
+  "small_paper_full_pad_20261025": {
+    "status": "historical_observed",
+    "run_id": "paper_full_pad_20261025_01",
+    "pickup_verified": true,
+    "whole_paper_placement_verified": false,
+    "explicit_waist_path_scope": "One task-local empty/paper path and controlled return, not general full-body validation",
+    "user_acknowledged_soc_override_this_run_only": true,
+    "software_exit_verified": false,
+    "user_reported_poweroff": true,
+    "complete_remote_archive_downloaded": false,
+    "evidence_hint": "observations/20261025_纸张完整放入鼠标垫/runs/attempt_01/本次实验总结.md"
+  }
+}

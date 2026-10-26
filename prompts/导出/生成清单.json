@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "libraryVersion": "2026-10-25.2",
+  "builtAtUtc": "2026-10-26T07:39:59.8377603+00:00",
+  "generator": "生成完整提示词.ps1",
+  "sources": [
+    {
+      "relativePath": "00_任务入口提示词.md",
+      "sha256": "e35ed457ec91cc77e5d38140c105c57f13b62135b444fc385cb0d0723c987ebe",
+      "sizeBytes": 13908
+    },
+    {
+      "relativePath": "01_本机硬件与控制接口.md",
+      "sha256": "fb96bb037281d4ccae841c0619a2b8ea1b670a7394050351b3dc24b67bdc1253",
+      "sizeBytes": 14834
+    },
+    {
+      "relativePath": "02_机器人与夹爪几何模型及标定.md",
+      "sha256": "b3f3b82b5b57df322a9959a6d22893a86f6417b95ccd9b98007b7d2409f42d6a",
+      "sizeBytes": 19026
+    },
+    {
+      "relativePath": "03_执行流程与异常恢复.md",
+      "sha256": "81ea77afbcc54bfbe056a00b4299c90e92add7a4cf603a2fbd4733b2f08381be",
+      "sizeBytes": 27200
+    },
+    {
+      "relativePath": "04_任务模板与成功判据.md",
+      "sha256": "07a34dc7a2f019ff07f6f48f3bc4b0accd2153f7d6837cea03f99948a1a6d787",
+      "sizeBytes": 16885
+    },
+    {
+      "relativePath": "模型与配置/README.md",
+      "sha256": "f21ace59abc3d8c93ee3933b75986879c632d28d638c47269a58e7daeb33d1c5",
+      "sizeBytes": 4710
+    },
+    {
+      "relativePath": "模型与配置/本机配置与验证状态.json",
+      "sha256": "2cd8daeb2029c0bb936efc786c7253d6c67d71ae9b8b846d570f2366b9813f7b",
+      "sizeBytes": 20828
+    }
+  ],
+  "export": {
+    "relativePath": "导出/G1机器人完整提示词.md",
+    "sha256": "097332b6e34816d630b722862b2c6f1fde31e4db5e92876cd4a62bf9cde4908e",
+    "sizeBytes": 118043
+  }
+}

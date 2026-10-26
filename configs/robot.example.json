@@ -1,0 +1,16 @@
+{
+  "purpose": "Descriptive installation checklist; not consumed by historical scripts",
+  "execution_ready": false,
+  "ssh_alias": "robot-g1",
+  "dds_interface": "CONFIGURE_FROM_CURRENT_ENUMERATION",
+  "dds_domain": 0,
+  "unitree_sdk_root": "CONFIGURE_LOCALLY",
+  "dex1_sdk_root": "CONFIGURE_LOCALLY",
+  "run_directory": "CONFIGURE_LOCALLY",
+  "head_camera_serial": "CONFIGURE_LOCALLY",
+  "wrist_cameras": {"left": null, "right": null},
+  "grippers": {"left_device": null, "right_device": null, "motor_ids": null},
+  "mode_and_support": "Historical trials: debug-position, fully load-bearing suspension; confirm current conditions",
+  "calibration_file": null,
+  "active_trajectory": null
+}

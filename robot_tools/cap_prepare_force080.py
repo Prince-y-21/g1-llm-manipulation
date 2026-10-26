@@ -1,0 +1,8 @@
+from pathlib import Path
+import subprocess,json
+root=Path('/home/unitree/codex_g1_tasks/cap_open_20261021T064124Z/bimanual_development');r=root/'left_force_step_080';r.mkdir(exist_ok=False)
+s=(root/'left_force_step_050/cycle.cpp').read_text()
+for a,b in [('initial>.4','initial>.7'),('c.kd=1.5f/(g*g)','c.kd=3.0f/(g*g)'),('-.10f,.10f','-.16f,.16f'),('std::abs(torque)>.70f','std::abs(torque)>1.0f'),('torque>.42f','torque>.70f')]:assert a in s,a;s=s.replace(a,b)
+(r/'cycle.cpp').write_text(s);subprocess.check_call(['g++','-std=c++17','-O2','-I/home/unitree/dex1_1_service/include',str(r/'cycle.cpp'),'-L/home/unitree/dex1_1_service/lib','-lUnitreeMotorSDK_Arm64','-Wl,-rpath,/home/unitree/dex1_1_service/lib','-lpthread','-o',str(r/'cycle')],timeout=25)
+(r/'preflight.json').write_text(json.dumps(dict(scope='empty outboard .35-rad reversible displacement only, no bottle contact',evidence='At .5 Nm P cap, outward movement reached .336 rad; reverse stalled with .198-rad return error. Force is a self-imposed test envelope, not a manufacturer limit.',official_source='https://www.unitree.com/cn/mobile/Dex1-1/',official_claim='Adjustable 5..120N grip and 5Nm motor peak are published; neither establishes this mechanism force conversion or continuous setting.',p_cap_nm=.8,kd=3.,speed_guard_rad_s=.25,measured_torque_guard_nm=1.,stall_abort_s=.8),indent=2))
+runner=(root/'cap_left_force_step.py').read_text();start=runner.index("assert (r/'cycle').exists()");runner="from pathlib import Path\nimport subprocess,cv2,time,json\nroot=Path('"+str(root)+"');r=root/'left_force_step_080'\n"+runner[start:];(root/'cap_left_force080.py').write_text(runner);print('FORCE_080_PREPARED_NO_COMMANDS')

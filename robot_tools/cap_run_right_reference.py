@@ -1,0 +1,5 @@
+from pathlib import Path
+base=Path('/home/unitree/codex_g1_tasks/cap_open_20261021T064124Z');s=(base/'gripper_small_cycle.cpp').read_text()
+for old,new in [('left_serial_test.lock','right_serial_test.lock'),('/dev/ttyUSB2','/dev/ttyUSB1'),('c.id=1','c.id=0'),('initial<-.05||initial>.25','initial<5.0||initial>5.4'),('EMPTY_LEFT_CYCLE','EMPTY_RIGHT_CYCLE')]:assert old in s;s=s.replace(old,new)
+(base/'gripper_right_reference.cpp').write_text(s)
+code=(base/'cap_run_left_cycle_source.py').read_text();old="r=Path('/home/unitree/codex_g1_tasks/cap_open_20261021T064124Z/bimanual_development');src=r.parent/'gripper_small_cycle.cpp';";new="r=Path('/home/unitree/codex_g1_tasks/cap_open_20261021T064124Z/bimanual_development/right_reference_test');r.mkdir(exist_ok=False);src=Path('/home/unitree/codex_g1_tasks/cap_open_20261021T064124Z/gripper_right_reference.cpp');";assert old in code;code=code.replace(old,new).replace('/dev/ttyUSB2','/dev/ttyUSB1').replace('cv2.VideoCapture(0,','cv2.VideoCapture(8,');exec(compile(code,'right_reference_cycle','exec'))
